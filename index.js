@@ -13,12 +13,12 @@ const calculateFrequency = () => {
   const frequencyArray = textInput.value.split(' ');
   frequencyObject = {};
   for (let word of frequencyArray) {
-    word = word.replace('.', '');
-    word = word.replace(',', '');
-    word = word.replace('!', '');
-    word = word.replace('?', '');
-    word = word.replace(':', '');
-    word = word.replace(';', '');
+    word = word.replaceAll('.', '');
+    word = word.replaceAll(',', '');
+    word = word.replaceAll('!', '');
+    word = word.replaceAll('?', '');
+    word = word.replaceAll(':', '');
+    word = word.replaceAll(';', '');
 
     if (word.toLowerCase() in frequencyObject) {
       frequencyObject[word.toLowerCase()] += 1;
