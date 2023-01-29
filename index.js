@@ -10,6 +10,7 @@ const calculateFrequency = () => {
     return;
   }
 
+  frequencyObject = {};
   const frequencyArray = textInput.value.split(' ');
   for (let word of frequencyArray) {
     if (word.trim() === '') continue;
