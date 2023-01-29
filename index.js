@@ -2,7 +2,7 @@ const textInput = document.getElementById('text');
 const calculateBtn = document.getElementById('calculate');
 const tableDiv = document.getElementById('table');
 
-let frequencyObject;
+let frequencyObject = {};
 
 const calculateFrequency = () => {
   if (textInput.value.trim() === '') {
@@ -11,8 +11,8 @@ const calculateFrequency = () => {
   }
 
   const frequencyArray = textInput.value.split(' ');
-  frequencyObject = {};
   for (let word of frequencyArray) {
+    if (word.trim() === '') continue;
     word = word.replaceAll('.', '');
     word = word.replaceAll(',', '');
     word = word.replaceAll('!', '');
@@ -29,7 +29,7 @@ const calculateFrequency = () => {
 
   frequencyObject = Object.entries(frequencyObject)
     .sort((a, b) => b[1] - a[1])
-    .reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {});
+    .reduce((a, [k, v]) => ({ ...a, [k]: v }), {});
 
   createTable();
 };
